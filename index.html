@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/reponsive.css">
+    <title>index</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        background-color: #1e2021;
+    }
+
+    /* 1. Header */
+    .header {
+        /* border: 2px solid red; */
+        height: 30px;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 10%;
+        display: flex;
+        justify-content: space-between;
+        background-color: #044975;
+        position: fixed;
+        z-index: 1000;
+    }
+
+    /* > Menu */
+    .menu {
+        /* border: 2px solid red; */
+        width: 31%;
+        height: 100%;
+        display: flex;
+    }
+
+    .menu li {
+        box-sizing: border-box;
+        list-style-type: none;
+        padding: 4px 8px 7px 8px;
+    }
+
+    .menu li>a {
+        font-size: 14px;
+        /* border: 2px solid yellow; */
+        color: white;
+        text-decoration: none;
+    }
+
+    /* > Support */
+    .support {
+        /* border:2px solid yellow; */
+        width: 30%;
+        height: 100%;
+        display: flex;
+        box-sizing: border-box;
+        padding: 2px 0;
+        font-size: 14px;
+    }
+
+    .support-online {
+        width: 50%;
+        height: 100%;
+        padding-top: 2px;
+        box-sizing: border-box;
+        /* border: 2px solid red; */
+        background-color: black;
+        border-radius: 7px;
+        text-align: center;
+    }
+
+    .support-online:hover {
+        background-color: #c7991b;
+    }
+
+    .support-online a {
+        text-decoration: none;
+        color: white;
+
+    }
+
+    .cart {
+        width: 50%;
+        /* border: 2px solid red; */
+        display: flex;
+        color: white;
+        box-sizing: border-box;
+        padding-left: 20px;
+        padding-top: 2px;
+    }
+
+    .cart a {
+        color: black;
+        padding: 0 5px;
+    }
+
+    .cart div {
+        color: black;
+        padding: 0 5px;
+        color: white;
+        border-radius: 5px;
+        background-color: #c7991b;
+        margin: 0 7px 3px 0;
+    }
+
+    .cart a:hover,
+    .cart div:hover,
+    .cart p:hover {
+        cursor: pointer;
+    }
+
+    /*2. Admin contact */
+    .admin-contact {
+        position: absolute;
+        /* border: 2px solid red; */
+        /* height: 100px; */
+        width: 40px;
+        top: 200px;
+        z-index: 1000;
+        right: 5px;
+        position: fixed;
+    }
+
+    .icon {
+        /* border: 2px solid blue; */
+        width: 40px;
+        height: 40px;
+        margin-bottom: 5px;
+        border-radius: 50%;
+    }
+
+    .icon:hover {
+        cursor: pointer;
+        /* -webkit-animation: icon 1s infinite ease-in-out; */
+        animation: icon 1.5s infinite ease-in-out;
+        /* -webkit-transform-origin: 50% 50%;
+        -ms-transform-origin: 50% 50%; */
+        transform-origin: 50% 50%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /*3. Body*/
+    .body {
+        background-color: #1e2021;
+        /* position: relative; */
+    }
+
+    /* 3.1 Container */
+    .container {
+        position: relative;
+        top: 30px;
+        /* border-bottom: 1px solid red; */
+        width: 80%;
+        margin: 0 auto 80px auto;
+
+    }
+
+    /* 3.1.1 Header Content */
+    .header-content {
+        /* border: 2px solid blue; */
+        width: 100%;
+        height: 110px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    /* 3.1.1.1 Logo */
+    .logo {
+        height: 100px;
+        width: 200px;
+        /* border: 2px solid; */
+        background-image: url(/Image/logo.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+
+    .logo:hover {
+        cursor: pointer;
+    }
+
+    /* 3.1.1.1 Contact */
+    .contact {
+        margin-top: 14px;
+        height: 78px;
+        width: 400px;
+        /* border: 2px solid; */
+        border-radius: 15px;
+        background-image: url(/Image/bg_top_hotline.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        color: white;
+        font-size: 15px;
+        overflow: hidden;
+
+    }
+
+    .mobile-contact,
+    .address-contact {
+        position: relative;
+        top: 30px;
+        left: 20px;
+        text-align: center;
+
+    }
+
+    .mobile-contact {
+        display: flex;
+        color: red;
+        justify-content: space-evenly;
+    }
+
+    /* 3.1.2 Main */
+    .main {
+        background-color: white;
+        /* border: 2px solid yellow; */
+        width: 100%;
+        height: 700px;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    /* 3.1.2.1 Extension */
+    .main-extension {
+        /* border: 2px solid red; */
+        height: 45px;
+        display: flex;
+        background-color: #1071ac;
+        /* line-height: 40px; */
+        color: white;
+    }
+
+    .extension:hover {
+        /* border: 1px solid red; */
+        cursor: pointer;
+    }
+
+    .extension1 {
+        width: 25%;
+        display: flex;
+        border-right: 1px solid;
+        line-height: 40px;
+
+    }
+
+    .extension1 .menu-text {
+        width: 85%;
+        font-size: large;
+    }
+
+    .extension1 .menu-bar {
+        width: 15%;
+        height: 100%;
+        box-sizing: border-box;
+        padding-left: 12px;
+    }
+
+    .extension2 {
+        width: 45%;
+        display: flex;
+        line-height: 40px;
+
+    }
+
+    .extension2 div {
+        /* border: 1px solid yellow; */
+        width: calc(100% / 6);
+        text-align: center;
+    }
+
+    .extension2 div:hover {
+        background-color: #044975;
+    }
+
+    .extension3 {
+        width: 15%;
+        padding: 5px;
+    }
+
+    .built {
+        background-color: #c56d06;
+        height: 100%;
+        border-radius: 10px;
+        box-sizing: border-box;
+        padding: 3px;
+        line-height: 30px;
+        padding-left: 10px;
+    }
+
+    .built:hover {
+        background-color: #c7991b;
+    }
+
+    .extension4 {
+        width: 15%;
+        height: 100%;
+        padding-top: 5px;
+    }
+
+    .extension4>div {
+        /* border: 2px solid; */
+        border-radius: 8px;
+        overflow: hidden;
+        display: flex;
+        height: 75%;
+        width: 100%;
+        box-sizing: border-box;
+
+    }
+
+    .extension4 input {
+        width: 80%;
+        height: 100%;
+        background-color: #1e2021;
+        outline: none;
+        border: #1e2021;
+        color: white;
+        padding-left: 5px;
+    }
+
+    .extension4 input:focus {
+        height: 105% !important;
+    }
+
+    .extension4>div>div {
+        background-color: white;
+        width: 20%;
+        height: 100%;
+    }
+
+    .extension4>div>div>i {
+        position: relative;
+        top: 4px;
+        left: 7px;
+        color: black;
+    }
+
+    /* 3.1.2.2 Main-content */
+    .main-content {
+        /* border: 2px solid red ; */
+        height: 100%;
+        display: flex;
+    }
+
+
+    .main-menu {
+        /* border: 2px solid blue; */
+        width: 24.8%;
+        height: calc(100% - 40px);
+        overflow-y: scroll;
+    }
+
+    .main-menu::-webkit-scrollbar {
+        width: 0px;
+        /* Chiều rộng vùng chứa scrollbar */
+    }
+
+    .main-menu::-webkit-scrollbar-track {
+        background: none;
+        /* Màu nền ngoài của thanh scrollbar */
+    }
+
+    .main-menu::-webkit-scrollbar-thumb {
+        background-color: #ad691a;
+        /* Màu của thanh cuộn (scroll thumb) */
+        border-radius: 20px;
+        /* Bo góc scroll thumb */
+        border: 1px solid #ccc;
+        /* Không hỗ trợ padding, margin, transition nên dùng viền cùng màu nên để padding scroll thumb */
+    }
+
+    .main-menu::-webkit-scrollbar-thumb:hover {
+        background-color: #ff8000;
+        /* Hiệu ứng di chuột đổi màu*/
+    }
+
+    .menu-list {
+        border: 1px solid rgb(108, 105, 105);
+        height: calc(100% / 17);
+        line-height: 40px;
+        background-color: #444;
+        color: rgb(199, 194, 194);
+        padding-left: 5px;
+        text-overflow: ellipsis;
+    }
+
+    .menu-list:hover {
+        cursor: pointer;
+        background-color: #1e2021;
+    }
+
+    .menu-list a {
+        position: relative;
+        display: inline-flex;
+        line-height: 40px;
+    }
+
+    .menu-list a>img {
+        position: relative;
+        top: 5px;
+        height: 30px;
+    }
+
+    .main-show {
+        /* border: 1px solid red; */
+        width: 75%;
+        height: 100%;
+    }
+
+    .main-picture {
+        /* border: 1px solid blue; */
+        height: 70%;
+    }
+
+    .sp-picture {
+        /* border: 1px solid yellow; */
+        height: 30%;
+        display: flex;
+    }
+
+    .picture {
+        border: 1px solid black;
+        height: 77%;
+        width: calc(100% / 3);
+    }
+
+    .picture:hover {
+        cursor: pointer;
+    }
+
+    /* 3.1.2 New Old */
+    .box {
+        border-bottom: 1px solid rgb(101, 98, 98);
+        width: 100%;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .box1 {
+        /* border: 1px solid blue; */
+        width: 40%;
+        padding-left: 5px;
+        line-height: 44px;
+        font-size: 18px;
+    }
+
+    .box1 img {
+        position: relative;
+        top: 10px
+    }
+
+    .box2 {
+        /* border: 1px solid blue; */
+        width: 65%;
+        display: flex;
+        padding: 10px 0;
+        justify-content: end;
+    }
+
+    .box2 span {
+        /* border: 1px solid red; */
+        width: 20%;
+        font-size: 14px;
+        line-height: 22px;
+        color: rgb(201, 197, 197);
+    }
+
+    .box2 span:hover {
+        cursor: pointer;
+    }
+
+    .content {
+        /* border: 2px solid yellow; */
+        width: 100%;
+        display: grid;
+        grid-template-columns: 18.6% 18.6% 18.6% 18.6% 18.6%;
+        /* grid-column-gap: 20px; */
+        padding: 20px 0;
+        color: white;
+        gap: 20px 20px;
+    }
+
+    .computer-items {
+        /* border: 1px solid red; */
+        background-color: rgb(19, 19, 19);
+        height: 300px;
+        transition: all 0.4s ease-in-out;
+    }
+
+    .computer-items:hover {
+        /* cursor: pointer; */
+        transform: scale(1.05);
+    }
+
+    .computer-img {
+        width: 100%;
+        height: 55%;
+        /* border: 1px solid yellow; */
+
+    }
+
+    .computer-img img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .computer-text {
+        overflow: hidden;
+        width: 100%;
+        height: 15%;
+        /* border: 1px solid blue; */
+        text-align: center;
+        font-size: smaller;
+    }
+
+    .computer-img:hover,
+    .computer-text:hover {
+        cursor: pointer;
+    }
+
+    .computer-price {
+        /* border: 1px solid blue; */
+        height: 15%;
+        line-height: 50px;
+        text-align: center;
+        color: red;
+    }
+
+    .computer-cart {
+        height: 7%;
+        /* border: 1px solid blue; */
+        border-radius: 15px;
+        margin: 0 20px;
+        background-color: #1071ac;
+        padding: 0 10px;
+    }
+
+    .computer-cart:hover {
+        cursor: pointer;
+    }
+
+    .computer-cart i {
+        color: black;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    /* 3.2 Holine */
+    .holine-box {
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+        height: 150px;
+        padding-top: 40px;
+        box-shadow: inset 0px 5px 10px rgb(95, 93, 93),
+            inset -5px -5px 10px rgb(95, 93, 93);
+    }
+
+    .hotline-motal {
+        /* border: 2px solid red; */
+        width: 60%;
+        height: 50%;
+        margin: auto;
+        color: white;
+        display: flex;
+    }
+
+    .hotline-left {
+        /* border: 1px solid blue; */
+        width: 50%;
+        margin-right: 10px;
+    }
+
+    .hotline-left p {
+        text-align: right;
+    }
+
+    .hotline-right img {
+        position: relative;
+        top: 7px;
+        margin: 0 5px;
+        /* border: 1px solid blue; */
+
+    }
+
+    /* 3.3 Footer */
+    footer {
+        position: relative;
+        top: 30px;
+        width: 100%;
+        height: 400px;
+        border: 1px solid red;
+    }
+</style>
+
+<body>
+    <div class="header">
+        <ul class="menu">
+            <li><a href="/index.html">Trang chủ ></a></li>
+            <li><a href="">Giới thiệu ></a></li>
+            <li><a href="">Hỗ trợ mua hàng online ></a></li>
+        </ul>
+        <div class="support">
+            <div class="support-online da-0">
+                <a href=""><i class="fa-solid fa-headphones"></i> Hỗ trợ trực tuyến</a>
+            </div>
+            <div class="cart">
+                <a href="/carthome.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                <div id="card-value">0</div>
+                <p onclick="window.location.href = '/carthome.html'">Giỏ hàng</p>
+            </div>
+        </div>
+    </div>
+    <div class="admin-contact">
+        <div class="icon"><a href=""></a></div>
+        <div class="icon"><a href=""></a></div>
+        <div class="icon"><a href=""></a></div>
+        <div class="icon"><a href=""></a></div>
+    </div>
+    <div class="body">
+        <div class="container" id="container">
+            <div class="header-content">
+                <div class="logo da-0" onclick="window.location.href = '/index.html'"></div>
+                <div class="contact da-10">
+                    <div class="mobile-contact">
+                        <div class="number">0988 592 692</div>
+                        <div class="number">0386 678 985</div>
+                        <div class="number">0976228953 </div>
+                    </div>
+                    <div class="address-contact">Số 2 Ngõ 156 - Lê Trọng Tấn - Thanh Xuân - Hà Nội</div>
+                </div>
+            </div>
+            <div class="main" id="main">
+                <div class="main-extension">
+                    <div class="extension extension1">
+                        <div class="menu-bar"><i class="fa-sharp fa-solid fa-bars fa-lg"></i></div>
+                        <div class="menu-text">
+                            <h3>Danh mục sản phẩm</h3>
+                        </div>
+                    </div>
+                    <div class="extension extension2 da-0 da-sm-0 da-md-0">
+                        <div>Trang chủ</div>
+                        <div>Dịch vụ</div>
+                        <div>Tin tức</div>
+                        <div>Tư vấn</div>
+                        <div>Phần mềm</div>
+                        <div>Liên hệ</div>
+                    </div>
+                    <div class="extension extension3 da-0 da-sm-0">
+                        <div class="built">
+                            <i class="fa-solid fa-wrench"></i>
+                            <span>Xây dựng cấu hình</span>
+                        </div>
+                    </div>
+                    <div class="extension extension4 da-0">
+                        <div>
+                            <input type="search" id="search" placeholder="Nhập từ khóa">
+                            <div><i class="fa-solid fa-magnifying-glass"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-content">
+                    <div class="main-menu" id="main-menu"></div>
+                    <div class="main-show da-0">
+                        <div class="main-picture">
+                            <img id="img" src="/Image/main_picture1.jpg" width="100%" height="100%" alt="error">
+                        </div>
+                        <div class="sp-picture">
+                            <div class="picture picture1"><img width="100%" height="100%" src="/Image/picture1.jpg"
+                                    alt=""></div>
+                            <div class="picture picture2"><img width="100%" height="100%" src="/Image/picture2.jpg"
+                                    alt=""></div>
+                            <div class="picture picture3"><img width="100%" height="100%" src="/Image/picture3.jpg"
+                                    alt=""></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="holine-box">
+        <div class="hotline-motal">
+            <div class="hotline-left">
+                <p><strong style="font-size: 25px;">TỔNG ĐÀI GÓP Ý KHIẾU NẠI</strong></p>
+                <p>(08h00 - 21h00 tất cả các ngày trong tuần)</p>
+            </div>
+            <div class="hotline-right">
+                <img src="/Image/hotline.png" alt=""> <strong style="font-size: 28px; color:red">0393 974 843</strong>
+            </div>
+        </div>
+    </div>
+    </div>
+    <footer>
+    </footer>
+
+
+
+    <script>
+
+        let arrIcon = ["/Image/tel.jpg", "/Image/zalo.jpg", "/Image/facebook.webp", "/Image/messager.jpg"];
+        let icon = document.getElementsByClassName("icon");
+        for (let i = 0; i < icon.length; i++) {
+            icon[i].setAttribute("style", `background-image: url(${arrIcon[i]});background-size: 105% 105%; background-repeat: no-repeat;`)
+        }
+
+        let arrMenuBar = ["TRỌN BỘ MÁY TÍNH CŨ/MỚI", "CASE VĂN PHÒNG", "CASEGAME-ĐỒ HỌA (CŨ)", "CASEGAME-ĐỒ HỌA (MỚI)", "CÂY DUAL XEON", "MÁY TÍNH ĐỒNG BỘ", "CHÍP BỘ VI XỬ LÝ (CPU)", "MAINBOARD (BO MẠCH CHỦ)", "RAM (BỘ NHỚ TRONG)", "HDD && SSD (Ổ CỨNG)", "VGA (CARD MÀN HÌNH)", "PSU (NGUỒN MÁY TÍNH)", "CASE-VỎ MÁY TÍNH", "MÀN HÌNH MÁY TÍNH (MỚI)", "MÀN HÌNH MÁY TÍNH CŨ", "GAMING GEAR", "LAPTOP CŨ"];
+        let mainMenu = document.getElementById("main-menu");
+        let listIcons = ["/Image/listIcons1.png", "/Image/listIcons2.png", "/Image/listIcons3.png", "/Image/listIcons4.png", "/Image/listIcons5.png", "/Image/listIcons6.png", "/Image/listIcons7.png", "/Image/listIcons8.png", "/Image/listIcons9.png", "/Image/listIcons10.png", "/Image/listIcons11.png", "/Image/listIcons12.png", "/Image/listIcons13.png", "/Image/listIcons14.png", "/Image/listIcons15.png", "/Image/listIcons16.png", "/Image/listIcons17.png"]
+        for (let i = 0; i < arrMenuBar.length; i++) {
+            mainMenu.innerHTML +=
+                `
+                                    <div class="menu-list"><a href="#link${i}"><img class="list-icon" src="${listIcons[i]}" alt="">${arrMenuBar[i]}</a></div>
+                                `
+        }
+
+        let arrMainPicture = ["/Image/main_picture1.jpg", "/Image/main_picture2.jpg", "/Image/main_picture3.jpg", "/Image/main_picture4.jpg", "/Image/main_picture5.jpg"];
+        let mainImg = document.getElementById("img");
+        let count = 0;
+        let showImg = () => {
+            mainImg.src = arrMainPicture[count];
+            count++;
+            if (count == arrMainPicture.length) {
+                count = 0;
+            }
+        }
+        setInterval(showImg, 1000);
+
+        let arrId = ["new-old-content", "office-content", "old-game-content", "new-game-content", "xeon-content", "synchronized-content", "cpu-content", "mainboard-content", "ram-content", "hdd-ssd-content", "vga-content", "psu-content", "case-content", "new-screen-content", "old-screen-content", "gear-content", "old-laptop-content"];
+        let arrSpan = [
+            ["Giá từ 2tr đến 3.5tr", "Giá từ 3.5tr đến 4.5tr", "Giá từ 4.5tr đến 6tr", "Giá từ 6tr đến 10tr", "Cây máy tính mới 100%"],
+            ["Giá từ 2tr đến 3tr5", "Giá từ 3tr5 đến 5tr"],
+            [""], [""], [""],
+            ["Cây Đồng Bộ Dell", "Cây Đồng Bộ HP", "Cây Đồng Bộ Lenovo", "Cây Worstation- Đồ Hoạ", "Cây Render - Siêu Khủng"],
+            ["SOCKET 775", "SOCKET 1155", "SOCKET 1150", "SOCKET 1151-V1", "SOCKET 1151-V2"],
+            ["Main Socket 775", "Main Socket 1155", "Main Socket 1150", "Main Socket 1151 - V1", "Main Socket 1151 - V2"],
+            ["DDR 2", "DDR 3", "DDR 4", "RAM ECC", "REGISTERED"],
+            ["Ổ CỨNG HDD", "Hdd Laptop", "Ổ SSD ( ổ cứng Thế Rắn)"],
+            ["VGA 1GB", "VGA 2GB", "VGA 3GB", "VGA 4GB", "VGA 6GB"],
+            ["Nguồn Thường", "Nguồn công suất thực"],
+            [""],
+            ["Màn hình 20 inch mới", "Màn hình 22 inch mới", "Màn hình 24 inch mới", "Màn hình 27 inch mới", "Màn hình 32 inch mới"],
+            ["Màn hình 17 inch", "Màn hình 18.5 inch", "Màn hình 20 inch", "Màn hình 22 inch", "Màn hình 24 inch"],
+            ["Tản Nhiệt", "Tai Nghe", "Chuột - Bàn phím", "Loa máy tính", "Bộ Phát Wifi"],
+            ["Laptop Dell cũ", "Laptop HP cũ", "Laptop Asus cũ", "Laptop Vaio cũ", "Laptop Lenovo cũ"]
+
+        ]
+        let container = document.getElementById("container");
+        for (let i = 0; i < arrMenuBar.length; i++) {
+            container.innerHTML += `
+                                    <div>
+                                        <div class="box">
+                                            <div class="box1" id="link${i}">
+                                                <h3><img class="list-icon" src="${listIcons[i]}" alt="">${arrMenuBar[i]}</h3>
+                                            </div>
+                                            <div class="box2">
+                                            </div>
+                                        </div>
+                                        <div class="${arrId[i]} content" id="${arrId[i]}"></div>
+                                    </div>
+                                `
+        }
+
+        let box2 = document.getElementsByClassName("box2");
+        for (let i = 0; i < box2.length; i++) {
+            for (let j = 0; j < arrSpan[i].length; j++) {
+                box2[i].innerHTML += `
+                                        <span class="da-0">${arrSpan[i][j]}</span>
+                                        `
+            }
+        }
+
+        let arrComputerName = ["Bộ Fujisu H81/ Chip G3220/ Ram 4gb/ SSD 128GB + ..", "Case H81 Chip i5 4570/ Ram 8gb/ SSD 120Gb/ Màn ..", "Bộ máy tính H61/ G2010/ram 4gb/Ssd 120g + Màn 20", "Case B85/ chip i5 4570/ Ram 8gb/ SSD 120gb /Màn 20", "Case Dell 7040/ chip i5 6400/ ram 4gb/ SSD 240 + ..", "Case I5 6400/ Ram 8gb/ SSD 120GB + HDD 500gb/ Màn ..", "Dell 9020/ Chip i3 4150/ Ram 4gb/ SSD 128gb + màn ..", "Case B85/ chip i7 4790/ Ram 8gb/ SSD 120 + HDD ..", "Dell 9020/ Chip G3220/ Ram 4gb/ SSD 128gb + Màn ..", "Dell 9020 chip i5 4570/ ram 4gb/SSD 240gb + Màn ..", "Bộ máy tính core i5 4570/ ram 8gb/ vga GTX 750Ti ..", "Bộ máy tính Core i7/ Ram 8gb/ SSD 120 + Màn 20''", "Bộ máy H110, Chíp I3 6100, Ram 4gb, SSD120, Màn ..", "Bộ máy H110, Chíp G 4400, Ram 4gb, Ssd 120g , Màn ..", "Bộ máy tính core i5 /Ram 8gb/SSD 120gb + Màn 19 ..", "Bộ máy tính i5/ram 8gb/SSD 120 + Màn 19 icnh"];
+        let arrComputerPrice = ["4.200.000 đ", "5.550.000 đ", "4.000.000 đ", "5.800.000 đ", "6.150.000 đ", "6.500.000 đ", "4.650.000 đ", "7.300.000 đ", "4.250.000 đ", "5.450.000 đ", "9.100.000 đ", "5.600.000 đ", "5.600.000 đ", "5.200.000 đ", "4.800.000 đ", "5.100.000 đ"];
+        let newOldContent = document.getElementById("new-old-content");
+        let counter = 1;
+        for (let i = 0; i < arrComputerName.length; i++) {
+            if (i == 4) {
+                newOldContent.innerHTML += `
+                                        <div class="computer-items ${counter}">
+                                            <div>
+                                                <img class="computer-img" src="/Image/newold1_img.jpg" alt="">
+                                            </div>
+                                            <div class="computer-text">${arrComputerName[i]}</div>
+                                            <div class="computer-price">${arrComputerPrice[i]}</div>
+                                            <p><div class="computer-cart" onclick="addCart()" id="${counter}"><i class="fa-solid fa-cart-shopping"></i>Thêm vào giỏ hàng</div></p>
+                                        </div>                   
+                                        `
+                counter++;
+            } else {
+                newOldContent.innerHTML += `
+                                        <div class="computer-items ${counter}">
+                                            <div>
+                                                <img class="computer-img" src="/Image/newold_img.jpg" alt="">
+                                            </div>
+                                            <div class="computer-text">${arrComputerName[i]}</div>
+                                            <div class="computer-price">${arrComputerPrice[i]}</div>
+                                            <p><div class="computer-cart" onclick="addCart()" id="${counter}"><i class="fa-solid fa-cart-shopping"></i>Thêm vào giỏ hàng</div></p>
+                                        </div>  
+                                        `
+                counter++;
+
+            }
+        }
+
+        let arrOfficeImg = ["/Image/office1.jpg", "/Image/office2.jpg", "/Image/office3.jpg", "/Image/office4.jpg", "/Image/office5.jpg"];
+        let arrOfficeName = ["Cây máy tính H410/ chip I3 10105/ Ram 8gb/ SSD ..", "Case H110/ Chip I3 6100/ Ram 8gb/ SSD 120GB", "Cây máy tính H410/ Chip G6400/ Ram 8gb/ SSD 120GB", "Case H81/i3 4150/ram 4gb/ SSD 120", "Case B85/ chip i5 4570/ Ram 8gb/ SSD 120gb"];
+        let arrOfficePrice = ["7.200.000 đ", "4.300.000 đ", "5.800.000 đ", "3.300.000 đ", "4.100.000 đ"];
+
+
+        let arrOldGameImg = ["/Image/old_game1.jpg", "/Image/old_game2.jpg", "/Image/old_game3.jpg", "/Image/old_game4.jpg", "/Image/old_game5.jpg"];
+        let arrOldGameName = ["Cấu hình Game- Đồ Họa -Render i7 4790/ ram 16/ ..", "Case H81/ Chip I5 4570/ Ram 8gb/ GTX 1050/ SSD 120", "Case B85/ Chip i5 4570/ Ram 8gb/ GTX 1050ti/ SSD ..", "Case h81/ chip i3 4150/ Ram 8gb/ SSD 120/ GTX 75- ..", "Case H310/ chip i3 9100F/ Ram 8gb/ SSD 120 / GTX .."];
+        let arrOldGamePrice = ["8.200.000 đ", "5.500.000 đ", "6.000.000 đ", "4.950.000 đ", "6.250.000 đ"];
+
+        let arrNewGameImg = ["/Image/new_game1.jpg", "/Image/new_game2.jpg", "/Image/new_game3.jpg", "/Image/new_game4.jpg", "/Image/new_game5.jpg", "/Image/new_game6.jpg", "/Image/new_game7.jpg", "/Image/new_game8.jpg", "/Image/new_game9.jpg", "/Image/new_game10.jpg"];
+        let arrNewGameName = ["Case Gaming I5 9400F/Ram 16gb/ GTX 1650/ SSD 256gb", "Case Game Đồ Họa B460/ Chip i5 10400F/ Ram 8gb/ ..", "Case Đồ Họa Game Z490/ chip i7 10700k/ Ram 16gb/ ..", "Case B460/ chip i5 10400/ ram 16gb/ ssd 256/ Vga ..", "Case H410/ Chip i3 10100F/ Ram 8gb/ SSD 120/ GTX ..", "Main B365/ Chip G5400/ Ram 8gb/ SSD 120 GTX 1050TI", "Case H510/ chip i3 10105/ Ram 8gb/ SSD 120GB", "Case H510/ chip i3 10100/ ram 8gb/ SSD 120 / VGA ..", "Case B460/ chip I7 10700/ Ram 16gb/ SSD 250gb/ ..", "Case B360/ I5 9400F/ Ram 8gb/ GTX 1060 gb/ SSD 120"];
+        let arrNewGamePrice = ["Liên hệ", "12.000.000 đ", "22.400.000 đ", "15.600.000 đ", "8.200.000 đ", "Liên hệ", "7.200.000 đ", "8.650.000 đ", "15.500.000 đ", "Liên hệ"];
+
+        let arrXeonImg = ["/Image/xeon1.jpg", "/Image/xeon2.jpg", "/Image/xeon3.jpg", "/Image/xeon4.jpg", "/Image/xeon5.jpg", "/Image/xeon6.jpg", "/Image/xeon7.jpg", "/Image/xeon8.jpg", "/Image/xeon9.jpg", "/Image/xeon10.jpg"];
+        let arrXeonName = ["WOKSTATION RENDER Dual Xeon E5 2689 /RAM 64G ..", "NOXPLAYER APP TOOL - DUAL XEON E5 2670v2 /64Gb / ..", "HP Workstation Z440 Chip E5 2678 v3 Ram 16gb/ Vga ..", "HP Workstation Z440 Chip E5 2678 V3 Ram 32gb/ Vga ..", "Dell Precision T3610 / chip Xeon 1650/ Ram 16GB/ ..", "XEON E5 2678V3/ Ram 64GB/SSD 250/ VGA GTX1060-6gb", "XEON E5 2678V3 / 32Gb / SSD 250 /VGA 2Gb", "NOXPLAYER APP TOOL - XEON E5 2678V3 / 32Gb / ..", "CẤU HÌNH NOXPLAYER - XEON E5 2678V3 / 64Gb / GTX ..", "DUAL XEON E5 2678V3 /64Gb /GTX 1050Ti-4gb"];
+        let arrXeonPrice = ["Liên hệ", "13.500.000 đ", "15.700.000 đ", "14.500.000 đ", "Liên hệ", "16.800.000 đ", "11.800.000 đ", "12.500.000 đ", "14.000.000 đ", "16.000.000 đ"];
+
+        let arrSynchronizedImg = ["/Image/Synchronized1.jpg", "/Image/Synchronized2.jpg", "/Image/Synchronized3.jpg", "/Image/Synchronized4.jpg", "/Image/Synchronized5.jpg", "/Image/Synchronized6.jpg", "/Image/Synchronized7.jpg", "/Image/Synchronized8.jpg", "/Image/Synchronized9.jpg", "/Image/Synchronized10.jpg", "/Image/Synchronized11.jpg"];
+        let arrSynchronizedName = ["Máy tính HP ProDesk 600 G2 Mini Core i3 6300T / ..", "Máy Tính Lenovo ThinkCentre M900 SFF CPU Core I5 ..", "Dell optiplex 9020 / i5 4570/ Ram 4gb/ ssd 128gb", "Dell optiplex 9020 / i3 4150/ Ram 4gb/ ssd 128gb", "Dell optiplex 9020 / G3220/ Ram 4gb/ ssd 120gb", "Dell Precision T1700/ I3 4160/ram 4gb/HDD 250gb", "Dell Precision T1700/ I5 4570 /ram 4gb/HDD 500gb", "Dell Precision T1700/ I7 4770 /ram 8gb/HDD 500gb", "Dell Optiplex 7040 /chip i5 6400/ Ram 4GB/ SSD ..", "Dell Optiplex 7040/ chip i3 6100/ Ram 4gb/ SSD ..", "Dell Optiplex 7040/ Chip G 4400/ Ram 4gb / SSD .."];
+        let arrSynchronizedPrice = ["4.500.000 đ", "6.100.000 đ", "4.350.000 đ", "3.800.000 đ", "3.300.000 đ", "3.500.000 đ", "4.200.000 đ", "6.350.000 đ", "5.400.000 đ", "4.850.000 đ", "4.450.000 đ"];
+
+        let arrCPUImg = ["/Image/CPU1.jpg", "/Image/CPU2.jpg", "/Image/CPU3.jpg", "/Image/CPU4.jpg", "/Image/CPU5.jpg", "/Image/CPU6.jpg", "/Image/CPU7.jpg", "/Image/CPU8.jpg", "/Image/CPU9.jpg", "/Image/CPU10.jpg", "/Image/CPU11.jpg", "/Image/CPU12.jpg", "/Image/CPU13.jpg", "/Image/CPU14.jpg", "/Image/CPU15.jpg", "/Image/CPU16.jpg", "/Image/CPU17.jpg", "/Image/CPU18.jpg", "/Image/CPU19.jpg", "/Image/CPU20.jpg"];
+        let arrCPUName = ["Chip I3 10100 Tray 3.60GHz tubo 4.30 Socket 1200 ..", "Chip I5 10400 Tray 2.90GHz tubo 4.30 Socket 1200 ..", "CPU Intel Pentium Gold G7400 Processor", "CPU Intel Core i3-12100F", "CPU Intel Core i5-12400F", "CPU Intel Core i5-12400", "CPU Intel Core i7-12700", "Chip I3 10100F 3.60GHz tubo 4.30 Socket 1200 ..", "Chíp i3 4130, 4150 cũ", "Chíp I5 4590 cũ ( 3.30GHz tubo 3.70 )", "Chíp core I7 4790 (8mb cache up to 4.00 GHz)", "Chip I3 6100 cũ ( 3.70 GHz)", "Chip core i3 9100F (3.6 Ghz uptu 4.20 )", "CPU intel i5 9400F 2.90GHz tubo 4.10 Socket 1151 ..", "Chip Intel Core i5 8400 2.8Ghz Turbo Up to 4Ghz ..", "CPU intel i3 10100 3.60GHz tubo 4.30 Socket 1200 ..", "CPU intel i5 10400 2.90GHz tubo 4.30 Socket 1200 ..", "CPU intel i7 10700 2.90GHz tubo 4.80 Socket 1200 ..", "CPU intel i5 10400F 2.90GHz tubo 4.30 Socket 1200 ..", "CPU intel i7 10700K 3.80GHz tubo 5.10 Socket 1200 .."];
+        let arrCPUPrice = ["2.800.000 đ", "3.650.000 đ", "1.850.000 đ", "2.500.000 đ", "4.000.000 đ", "4.500.000 đ", "8.500.000 đ", "2.250.000 đ", "500.000 đ", "750.000 đ", "1.600.000 đ", "1.300.000 đ", "1.950.000 đ", "2.700.000 đ", "2.750.000 đ", "2.900.000 đ", "4.050.000 đ", "7.100.000 đ", "3.500.000 đ", "8.250.000 đ"];
+
+        let arrMainboardImg = ["/Image/MAINBOARD1.jpg", "/Image/MAINBOARD2.jpg", "/Image/MAINBOARD3.jpg", "/Image/MAINBOARD4.jpg", "/Image/MAINBOARD5.jpg", "/Image/MAINBOARD6.jpg", "/Image/MAINBOARD7.jpg", "/Image/MAINBOARD8.jpg", "/Image/MAINBOARD9.jpg", "/Image/MAINBOARD10.jpg", "/Image/MAINBOARD11.jpg", "/Image/MAINBOARD12.jpg", "/Image/MAINBOARD13.jpg", "/Image/MAINBOARD14.jpg", "/Image/MAINBOARD15.jpg", "/Image/MAINBOARD16.jpg", "/Image/MAINBOARD17.jpg", "/Image/MAINBOARD18.png", "/Image/MAINBOARD19.jpg", "/Image/MAINBOARD20.jpg"];
+        let arrMainboardName = ["Main B75 Samsung ( 4 khe Ram)", "Main MSI H87-G43 Gaming ( 4 khe ram )", "Mainboard ASRock Fatal1ty H97 Performance", "Main Gigabyte H110M-DS2", "Main Gigabyte B150M-D3H", "Main MSI H410M-A Pro", "Mainboard Gigabyte B660M DS3H DDR4", "Mainboard Asus TUF GAMING B660M-PLUS WIFI D4", "Mainboard Gigabyte B660M GAMING DDR4", "Mainboard Gigabyte Z690 GAMING X", "Main H61 cũ ( sạch đẹp như mới)", "Main ASUS H81M-D cũ", "Main gigabyte B85m-d2v", "Main Gigabyte H81 cũ", "Main Gigabyte H87-HD3", "Main ASROCK B365M-Pro4", "Gigabyte B365 D2V", "GIGABYTE B360 AORUS Pro", "Main Z390-UD Gigabyte", "Mainboard ASUS TUF Gaming B460M-PLus"];
+        let arrMainboardPrice = ["900.000 đ", "1.300.000 đ", "1.200.000 đ", "600.000 đ", "900.000 đ", "1.600.000 đ", "3.150.000 đ", "4.600.000 đ", "2.950.000 đ", "6.300.000 đ", "650.000 đ", "700.000 đ", "900.000 đ", "650.000 đ", "1.150.000 đ", "2.050.000 đ", "950.000 đ", "2.200.000 đ", "2.200.000 đ", "2.650.000 đ"];
+
+        let arrRAMImg = ["/Image/RAM1.png", "/Image/RAM2.jpg", "/Image/RAM3.jpg", "/Image/RAM4.jpg", "/Image/RAM5.jpg", "/Image/RAM6.jpg", "/Image/RAM7.jpg", "/Image/RAM8.jpg", "/Image/RAM9.jpg", "/Image/RAM10.jpg", "/Image/RAM11.jpg", "/Image/RAM12.jpg"];
+        let arrRAMName = ["Ram Corsair Vengeance LPX 16GB 3200MHz DDR4 ..", "RAM TEAMGROUP T-Force Dark Z 16GB DDR4 3200MHz", "Ram 4gb/DDR3", "Ram 4gb Bus 1600 Tản Nhiệt Corsai", "Ram 4gb DDr 4 Bus 2133 & 2400", "Ram 8gb ddr3 cũ", "Ram 8gb- DDr4 XPG ADATA Bus 2666", "Ram kingston 16gb/ ddr4 bus 2400", "RAM G.SKILL Trident Z RGB 16GB 3000MHz DDR4 ..", "Ram Kingston Hyper 8gb- DDr4- Bus 2666", "Ram GSKILL 8gb bus 2666 AEGIS ( 1x8)", "Ram 16gb GSKILL RIPJAWS DDr4 Bus 3000 ( 16GB x1)"];
+        let arrRAMPrice = ["1.500.000 đ", "1.600.000 đ", "250.000 đ", "350.000 đ", "350.000 đ", "550.000 đ", "950.000 đ", "1.500.000 đ", "2.450.000 đ", "1.000.000 đ", "1.000.000 đ", "2.300.000 đ"];
+
+        let arrHDSDImg = ["/Image/HDD1.jpg", "/Image/HDD2.jpg", "/Image/HDD3.jpg", "/Image/HDD4.jpg", "/Image/HDD5.jpg", "/Image/HDD6.jpg", "/Image/HDD7.jpg", "/Image/HDD8.jpg", "/Image/HDD9.jpg", "/Image/HDD10.jpg",];
+        let arrHDSDName = ["HDD 250gb", "HDD 500gb Cũ", "HDD 1TB", "HDD WD 2TB", "SSD 250 Lexar NM610 M2 Gen3x4", "SSD 120Gb Kingfast", "SSD M2 1TB intel 655P NVMe 2280", "SSD 256 Samsung NVMe PM981 M.2 PCIe Gen3 x4", "ổ cứng laptop 500gb cũ", "ổ cứng ( HDD) laptop cũ 1TB"];
+        let arrHDSDPrice = ["250.000 đ", "350.000 đ", "600.000 đ", "900.000 đ", "800.000 đ", "Liên hệ", "3.150.000 đ", "Liên hệ", "300.000 đ", "600.000 đ"];
+
+        let arrVGAImg = ["/Image/VGA1.jpg", "/Image/VGA2.jpg", "/Image/VGA3.jpg", "/Image/VGA4.jpg", "/Image/VGA5.jpg", "/Image/VGA6.jpg", "/Image/VGA7.jpg", "/Image/VGA8.jpg", "/Image/VGA9.jpg", "/Image/VGA10.jpg", "/Image/VGA11.jpg", "/Image/VGA12.jpg", "/Image/VGA13.jpg", "/Image/VGA14.jpg", "/Image/VGA15.jpg", "/Image/VGA16.jpg", "/Image/VGA17.jpg", "/Image/VGA18.jpg", "/Image/VGA19.jpg", "/Image/VGA20.jpg"];
+        let arrVGAName = ["Card màn hình NVIDIA RTX A4000 16GB", "Vga GTX 950 - 2gb - d5 -128 bít", "Galax GTX 1060-3gb OC D5 192 bit", "Vga Asrock RX 6500 XT Phantom Gaming D 4GB OC", "VGA MSI GTX 1650 VENTUF -4GB OC", "MSI GTX 1050 Ti 4gb OC", "Vga ASUS GTX 1050 - 2GB-D5 Dual Fan", "VGA ASUS 710 -1GB-D5", "Vga GALAX GTX 1050-2gb-D5-128 bit", "Gigabyte GTX 960-2gb-d5-128Bit", "MSI GTX 960-2gb-d5-128 bit ( 2 Fan)", "Vga MSI GTX 760 Gaming 2gb-d5-256 bit", "Vga Gigabyte GTX 1050 - 2gb - DDr5 - 128 bít", "Vga giga GTX 1060 cũ 3gb- DDR5 - 192 bít", "MSI GTX 1050ti 4gb-d5-128 bit", "Vga Gigabyte GTX 1660 Super 6gb-DDR6", "VGA Zotac GTX 1660- 6gb- d5 192bit", "VGA GALAX 1650 XE ( 1Click OC) -4gb-DRR6 -128Bit", "VGA Gigabyte GTX 1650 Super 4gb - DDR6 - 128Bit", "VGA Gigabyte RTX 2060 Super 8GB - D5 - 256 Bít"];
+        let arrVGAPrice = ["12.000.000 đ", "2.200.000 đ", "2.100.000 đ", "5.400.000 đ", "2.900.000 đ", "2.200.000 đ", "1.800.000 đ", "700.000 đ", "1.850.000 đ", "2.200.000 đ", "2.600.000 đ", "Liên hệ", "1.800.000 đ", "2.000.000 đ", "2.100.000 đ", "2.850.000 đ", "Liên hệ", "Liên hệ", "Liên hệ", "4.600.000 đ"];
+
+        let arrPSUImg = ["/Image/PSU1.jpg", "/Image/PSU2.jpg", "/Image/PSU3.jpg", "/Image/PSU4.jpg", "/Image/PSU5.jpg"];
+        let arrPSUName = ["Nguồn Cooler Master 700w Elite V3 PC700", "Nguồn Antec V550", "Nguồn Cooler Matster 500W & 550W", "Nguồn SAMA 700w 80 plus Bzonze", "Nguồn Xigmatek II X650 Chuẩn 80 Plus"];
+        let arrPSUPrice = ["1.000.000 đ", "650.000 đ", "450.000 đ", "950.000 đ", "850.000 đ"];
+
+        let arrCASEImg = ["/Image/CASE1.png", "/Image/CASE2.jpg", "/Image/CASE3.jpg", "/Image/CASE4.jpg", "/Image/CASE5.jpg", "/Image/CASE6.jpg"];
+        let arrCASEName = ["Case XIGMATEK AQUARIUS S", "Vỏ Case SAMA 3301", "Case Xtech F3", "Case Vietech Duty X8", "Casse Viettech X21 Stric", "Case Xigmatek VENOM (EN41479)"];
+        let arrCASEPrice = ["950.000 đ", "750.000 đ", "550.000 đ", "600.000 đ", "580.000 đ", "800.000 đ"];
+
+        let arrNewScreenImg = ["/Image/new_screen1.jpg", "/Image/new_screen2.jpg", "/Image/new_screen3.jpg", "/Image/new_screen4.jpg", "/Image/new_screen5.jpg", "/Image/new_screen6.jpg", "/Image/new_screen7.jpg", "/Image/new_screen8.jpg", "/Image/new_screen9.jpg", "/Image/new_screen10.jpg", "/Image/new_screen11.jpg", "/Image/new_screen12.jpg", "/Image/new_screen13.jpg", "/Image/new_screen14.jpg", "/Image/new_screen15.jpg", "/Image/new_screen16.jpg"];
+        let arrNewScreenName = ["Màn hình máy tính HKC MB21V13 21.5 inch FHD VA", "Màn hình Dahua DHI-LM22-A200 (21.5 ..", "Màn hình HP N246V 23.8Inch IPS", "Màn hình Dell S2421HN ..", "Màn hình máy tính MSI MD241PW 23.8inch FHD IPS", "Màn hình MSI Optix G241 ..", "Màn hình MSI 24 Pro MP241X 75Hz", "Màn hình 27 VSP IP2703S Esport Gaming 165 Hz", "Màn Hình 24 Inch DUAN BYK 248 - IPS Full Viền 75 ..", "Màn Hình 22 Inch DUAN BYK 220 AH- IPS Full Viền ..", "Màn Hình 22 KingView IPS KV 2219H Full Viền", "Màn Hình LED Cong 24 Sam sung C24F390FHE", "Màn hình HKC HA 238 IPS Full HD", "Màn hình Asus TUF GAMING VG27VQ Cong Full HD ..", 'Màn Hình MSI Optix G27CQ4 Cong 27" 2k 165 Hz 1Ms', 'Màn Hình Dell P2719H 27" FHD IPS full Viền'];
+        let arrNewScreenPrice = ["2.850.000 đ", "2.300.000 đ", "2.950.000 đ", "4.850.000 đ", "5.900.000 đ", "Liên hệ", "2.700.000 đ", "3.450.000 đ", "2.350.000 đ", "2.000.000 đ", "Liên hệ", "Liên hệ", "Liên hệ", "6.500.000 đ", "7.890.000 đ", "5.100.000 đ"];
+
+        let arrOldScreenImg = ["/Image/old_screen1.jpg", "/Image/old_screen2.jpg", "/Image/old_screen3.jpg", "/Image/old_screen4.jpg", "/Image/old_screen5.jpg", "/Image/old_screen6.jpg", "/Image/old_screen7.jpg", "/Image/old_screen8.jpg", "/Image/old_screen9.jpg", "/Image/old_screen10.jpg", "/Image/old_screen11.jpg", "/Image/old_screen12.jpg", "/Image/old_screen13.jpg", "/Image/old_screen14.jpg", "/Image/old_screen15.jpg", "/Image/old_screen16.jpg", "/Image/old_screen17.jpg", "/Image/old_screen18.jpg", "/Image/old_screen19.jpg", "/Image/old_screen20.jpg", "/Image/old_screen21.jpg"];
+        let arrOldScreenName = ["Màn hình LED 17 LENOVO 1714", "Màn Hình HP 20 Prodisplay P200 Led", "Màn Hình 20 HKC S2035 Full HD 1920x1080", "Màn hình 22 Dell P2214H", "Màn hình HP ELITEDISPLAY E222 1920x1080", "Màn hình HP P224 Full viền", "Màn hình Dell SE2219HX 21.5Inch IPS", "Màn hình Dell P2217H 21.5Inch IPS Chân Xoay", "Dell S2418HN tràn viền", "Màn hình AOC I2490 VXH/ BS Full viền", "Màn Hình 24 BenQ Xl2411144Hz 1Ms Chuyên Game", "Dell Utrashap U2417 full Viền", "Màn hình Philip 24 Led IPS 75Hz Full HD (1080P)", "Màn hình 18.5'' HP LV 1911 LED", "Màn hình 20 Dell E2016", "Màn Hình Dell E 2316 Led Full HD 1920X1080", "Màn hình Dell 22 (E2216H)", "Màn hình 22 LED Viewsonic VX 2209", "Màn Hình dell E 2416 ( Full HD 1920x1080 )", "Màn Dell UltraSharp LED - U 2312 HM full HD", 'Màn Hình Sam sung 27" Cong 27F397'];
+        let arrOldScreenPrice = ["600.000 đ", "Liên hệ", "1.250.000 đ", "Liên hệ", "Liên hệ", "2.300.000 đ", "2.900.000 đ", "2.850.000 đ", "2.900.000 đ", "2.600.000 đ", "3.000.000 đ", "4.100.000 đ", "Liên hệ", "1.250.000 đ", "1.300.000 đ", "2.250.000 đ", "1.750.000 đ", "Liên hệ", "2.350.000 đ", "Liên hệ", "3.200.000 đ"];
+
+        let arrGEARImg = ["/Image/GEAR1.jpg", "/Image/GEAR2.jpg", "/Image/GEAR3.jpg", "/Image/GEAR4.jpg", "/Image/GEAR5.jpg", "/Image/GEAR6.jpg", "/Image/GEAR7.jpg", "/Image/GEAR8.jpg", "/Image/GEAR9.jpg", "/Image/GEAR10.jpg"];
+        let arrGEARName = ["Bàn Phím Fuhlen 411", "Bàn phím Cơ quang G-Net LK 718", "Chuột Fuhlen G90", "Chuột Fuhlen G90S", "Phím cơ Fuhlen D destroyer", "Web Cam Dahua Z2+ 1080P Có Mic Siêu nét, Cổng USB", "Chuột Fuhlen", "Tản Nhiệt CPU cooler master MA 610", "Tản CPU Jonsbo CR-1000", "Tai Nghe Dareu EH 416"];
+        let arrGEARPrice = ["180.000 đ", "700.000 đ", "350.000 đ", "395.000 đ", "850.000 đ", "350.000 đ", "120.000 đ", "1.000.000 đ", "380.000 đ", "390.000 đ"];
+
+        let arrOldLaptopImg = ["/Image/old_laptop1.jpg", "/Image/old_laptop2.jpg", "/Image/old_laptop3.jpg", "/Image/old_laptop4.jpg", "/Image/old_laptop5.jpg", "/Image/old_laptop6.jpg", "/Image/old_laptop7.jpg", "/Image/old_laptop8.jpg", "/Image/old_laptop9.jpg", "/Image/old_laptop10.jpg", "/Image/old_laptop11.jpg", "/Image/old_laptop12.jpg", "/Image/old_laptop13.jpg", "/Image/old_laptop14.jpg", "/Image/old_laptop15.jpg"];
+        let arrOldLaptopName = ["Macbook Pro Retina 15'' 2014 core I7 Ram 16gb ..", "Dell Latitude E6540 i7 4810MQ- Ram 16gb-SSD 256gb", "Laptop Dell 7537 i5 4200U ram 6gb-SSD 120gb Vga ..", "Laptop dell 5548/ i5 5200/ ram 4gb/ ssd 240gb/Vga ..", "Laptop Dell Vostro 5568 i7 7500U/8GB/SSD ..", "Dell Inspiron 3558 Core i5 - 5200U/ Ram 4GB/ SSD ..", "Dell E5450/ Core I5 5300/ Ram 8GB/ SSD 120GB/ Màn ..", "Laptop Dell E6430/ I5 3320/ ram 4gb / SSD 120Gb/ ..", "Laptop Dell G3 15 3500 i5 ..", "Laptop HP Pavilion 14 ce1008TU i5 8265U/4GB/SSD ..", "Laptop HP 430 G1 core i5 4200u ram 8g ssd 120g", "Laptop HP Probook 650 G1 Core i5 4200/ Ram 4GB/ ..", "Laptop HP ProBook 450 G6 (5YM80PA) I5 8265U Ram ..", "ASUS TUF A15 FA506II-AL016T (Ryzen 7-4800H, 16G, ..", "Laptop ASUS FX503V i7-7700HQ/16G/1T+128G .."];
+        let arrOldLaptopPrice = ["15.800.000 đ", "Liên hệ", "Liên hệ", "Liên hệ", "Liên hệ", "Liên hệ", "7.800.000 đ", "Liên hệ", "13.800.000 đ", "6.500.000 đ", "5.000.000 đ", "6.400.000 đ", "9.500.000 đ", "17.000.000 đ", "14.500.000 đ"];
+
+        let arrName = [arrOfficeName, arrOldGameName, arrNewGameName, arrXeonName, arrSynchronizedName, arrCPUName, arrMainboardName, arrRAMName, arrHDSDName, arrVGAName, arrPSUName, arrCASEName, arrNewScreenName, arrOldScreenName, arrGEARName, arrOldLaptopName];
+        let arrImg = [arrOfficeImg, arrOldGameImg, arrNewGameImg, arrXeonImg, arrSynchronizedImg, arrCPUImg, arrMainboardImg, arrRAMImg, arrHDSDImg, arrVGAImg, arrPSUImg, arrCASEImg, arrNewScreenImg, arrOldScreenImg, arrGEARImg, arrOldLaptopImg];
+        let arrPrice = [arrOfficePrice, arrOldGamePrice, arrNewGamePrice, arrXeonPrice, arrSynchronizedPrice, arrCPUPrice, arrMainboardPrice, arrRAMPrice, arrHDSDPrice, arrVGAPrice, arrPSUPrice, arrCASEPrice, arrNewScreenPrice, arrOldScreenPrice, arrGEARPrice, arrOldLaptopPrice];
+        for (let k = 1; k < arrId.length; k++) {
+            let getId = document.getElementById(arrId[k]);
+            for (let i = 0; i < arrName[k - 1].length; i++) {
+                getId.innerHTML += `
+                                            <div class="computer-items ${counter}">
+                                                <div>
+                                                    <img class="computer-img" src="${arrImg[k - 1][i]}" alt="error">
+                                                </div>
+                                                <div class="computer-text">${arrName[k - 1][i]}</div>
+                                                <div class="computer-price">${arrPrice[k - 1][i]}</div>
+                                                <p><div class="computer-cart" onclick="addCart()" id="${counter}"><i class="fa-solid fa-cart-shopping"></i>Thêm vào giỏ hàng</div></p>
+                                            </div>  
+                                            `
+                counter++;
+            }
+        }
+
+
+        let productArr = [];
+        let productObj = {};
+        let computerItems = document.getElementsByClassName("computer-items");
+        let computerImg = document.getElementsByClassName("computer-img");
+        let computerText = document.getElementsByClassName("computer-text");
+        let computerPrice = document.getElementsByClassName("computer-price");
+        let computerCart = document.getElementsByClassName("computer-cart");
+        for (let i = 0; i < computerItems.length; i++) {
+            productObj = {
+                Id: computerCart[i].id,
+                Img: computerImg[i].src,
+                Name: computerText[i].innerHTML,
+                Price: computerPrice[i].innerHTML
+            }
+            productArr.push(productObj);
+        }
+        localStorage.setItem("productArr", JSON.stringify(productArr));
+
+        // Thêm sp và số lượng vào giỏ hàng
+        let productId;
+        for (let i = 0; i < computerCart.length; i++) {
+            computerCart[i].addEventListener("click", function getId() {
+                productId = computerCart[i].id;
+                localStorage.setItem("productNumber", JSON.stringify(productId));
+                let clickedArr = JSON.parse(localStorage.getItem("clickedArr"));
+                if (clickedArr == null) {
+                    clickedArr = [];
+                }
+                if (clickedArr.length == 0) {
+                    var obj1 = {
+                        id: productId,
+                        count: 1
+                    }
+                    clickedArr.push(obj1);
+                } else {
+                    let flag = false;
+                    for (let j = 0; j < clickedArr.length; j++) {
+                        if (clickedArr[j].id == productId) {
+                            clickedArr[j].count++;
+                            flag = true;
+                            break;
+                        }
+                    }
+                    if (flag == false) {
+                        var obj2 = {
+                            id: productId,
+                            count: 1
+                        }
+                        clickedArr.push(obj2);
+                    }
+                }
+                localStorage.setItem("clickedArr", JSON.stringify(clickedArr));
+            })
+        }
+
+
+        function addCart() {
+            alert("Bạn đã thêm 1 sản phẩm vào giỏ hàng");
+            location.reload();
+        }
+
+        // In ra số sp trong giỏ hàng ở trang chủ
+        function sumCount() {
+            let clickedArr = JSON.parse(localStorage.getItem("clickedArr"));
+            let cartValue = document.getElementById("card-value");
+            let sumCount = 0;
+            for (let i in clickedArr) {
+                sumCount += Number(clickedArr[i].count);
+            }
+            cartValue.innerHTML = sumCount;
+        }
+        sumCount();
+
+
+    </script>
+</body>
+
+</html>
