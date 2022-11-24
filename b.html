@@ -1,12 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <style>
+    .list {
+      position: relative;
+      height: 40px;
+      width: 200px;
+      background-color: rgb(243, 101, 24);
+      margin: 50px auto;
+    }
+    .list::before {
+      position: absolute;
+      left: 30px;
+      top: -10px;
+      /* background-color: blue; */
+      content: "";
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 10px solid rgb(250, 125, 23);
+    }
+  </style>
+  <body>
+    <!-- <div class="list"></div> -->
+    <label for="">Name</label> <input id="Namebox" type="text" /> <br />
+    <br />
+    <label for="">RollNo</label> <input id="Rollbox" type="text" /> <br />
+    <br />
+    <label for="">Section</label> <input id="Secbox" type="text" /> <br />
+    <br />
+    <label for="">Gender</label>
+    <select name="" id="Genbox">
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+
+    <hr />
+    <button id="insBtn">INSERT</button>
+    <button id="selBtn">SELECT</button>
+    <button id="updBtn">UPDATE</button>
+    <button id="delBtn">DELETE</button>
+
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyCk6Rv4M7KZsuME9t4yTQEvvwBssLh3HZo",
+        authDomain: "ducanh-21d01.firebaseapp.com",
+        databaseURL: "https://ducanh-21d01-default-rtdb.firebaseio.com",
+        projectId: "ducanh-21d01",
+        storageBucket: "ducanh-21d01.appspot.com",
+        messagingSenderId: "1005456178560",
+        appId: "1:1005456178560:web:f36e8a6098bcb08ceed565",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+
+      import {
+        getFirestore,
+        doc,
+        getDoc,
+        setDoc,
+        collection,
+        addDoc,
+        updateDoc,
+        deleteDoc,
+        deleteField,
+      } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js";
+      const db = getFirestore();
+      console.log(db);
+      let NameBox = document.getElementById("Namebox");
+      let RollBox = document.getElementById("Rollbox");
+      let SecBox = document.getElementById("Secbox");
+      let GenBox = document.getElementById("Genbox");
+
+      let insBtn = document.getElementById("insBtn");
+      let selBtn = document.getElementById("selBtn");
+      let updBtn = document.getElementById("updBtn");
+      let delBtn = document.getElementById("delBtn");
+
+      //   async function addDocument_AutoID() {
+      //     var ref = collection(db, "TheStudentsList");
+      //     const docRef = await addDoc(ref, {
+      //       nameOfStd: NameBox.value,
+      //       RollNo: RollBox.value,
+      //       Section: SecBox.value,
+      //       Gender: GenBox.value,
+      //     })
+      //       .then(() => {
+      //         alert("data added successfully");
+      //       })
+      //       .catch((err) => {
+      //         alert("Unsuccessuful operation, error:" + err);
+      //       });
+      //   }
+
+      //   Creat
+      async function addDocument_CustomID() {
+        var ref = doc(db, "TheStudentsList", RollBox.value);
+        const docRef = await setDoc(ref, {
+          nameOfStd: NameBox.value,
+          RollNo: RollBox.value,
+          Section: SecBox.value,
+          Gender: GenBox.value,
+        })
+          .then(() => {
+            alert("data added successfully");
+          })
+          .catch((err) => {
+            alert("Unsuccessuful operation, error:" + err);
+          });
+      }
+
+      //   Read
+      async function GetADocument() {
+        var ref = doc(db, "TheStudentsList", RollBox.value);
+        const docSnap = await getDoc(ref);
+        if (docSnap.exists()) {
+          NameBox.value = docSnap.data().nameOfStd;
+          SecBox.value = docSnap.data().Section;
+          GenBox.value = docSnap.data().Gender;
+        } else {
+          alert("No such document");
+        }
+      }
+
+      //   Update
+      async function UpdateFieldsInADocument() {
+        var ref = doc(db, "TheStudentsList", RollBox.value);
+        await updateDoc(ref, {
+          nameOfStd: NameBox.value,
+          Section: SecBox.value,
+          Gender: GenBox.value,
+        })
+          .then(() => {
+            alert("data update successfully");
+          })
+          .catch((err) => {
+            alert("Unsuccessuful operation, error:" + err);
+          });
+      }
+
+      //   Delete
+      async function DeleteDocument() {
+        var ref = doc(db, "TheStudentsList", RollBox.value);
+        const docSnap = await getDoc(ref);
+        if (!docSnap.exists()) {
+          alert("Document does not exist");
+          return;
+        }
+        await deleteDoc(ref)
+          .then(() => {
+            alert("data deleted successfully");
+          })
+          .catch((err) => {
+            alert("Unsuccessuful operation, error:" + err);
+          });
+      }
+
+
+
+      insBtn.addEventListener("click", addDocument_CustomID);
+      selBtn.addEventListener("click", GetADocument);
+      updBtn.addEventListener("click", UpdateFieldsInADocument);
+      delBtn.addEventListener("click", DeleteDocument);
+
+    </script>
+  </body>
 </html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Document</title>
+</head>
+<style>
+  * {
+    /* background-image: url(/Image/login.jpg); */
+    padding: 0;
+    margin: 0;
+  }
+  .box {
+  width: 100px;
+  height: 100px;
+  transform-style: preserve-3d;
+  transform: rotateX(-30deg);
+  animation: animate 4s linear infinite;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-color: red;
+  z-index: 2000;
+}
+</style>
+
+<body>
+  <div class="box">
+    <!-- <div class="top"></div>
+    <div>
+      <span style="--i:0;"></span>
+      <span style="--i:1;"></span>
+      <span style="--i:2;"></span>
+      <span style="--i:3;"></span>
+    </div> -->
+  </div>
+  <!-- <script>
+    // function disable() {
+    //     let btn = document.getElementsByTagName("button");
+    //     btn[0].setAttribute("disable", "disable");
+    //     return;
+    // }
+    // console.log(NaN===NaN);
+    // console.log(Boolean([]));
+    // console.log(Number(false));
+    // console.log(true.toString()[Number([])]);
+
+    // var models = [
+    //   { id: 2, name: "nokia", seller_id: 3, count: 49 },
+    //   { id: 1, name: "samsung", seller_id: 1, count: 56 },
+    //   { id: 1, name: "samsung", seller_id: 2, count: 68 },
+    //   { id: 2, name: "nokia", seller_id: 2, count: 45 }
+    // ];
+    // let i = 1;
+    // var arr = models.reduce((acc, item) => {
+    //   console.log(acc);
+    //   console.log(item);
+    //   let existItem = acc.find((name) => item.name === name.name);
+    //   console.log(existItem);
+    //   if (existItem) {
+    //     existItem.count += item.count;
+    //     console.log(existItem);
+    //   } else {
+    //     acc.push(item);
+    //   }
+    //   console.log("111", acc);
+    //   return acc;
+    // }, []);
+    // console.log(arr);
+
+    // const solution = function (a) {
+    //   let arr = [];
+    //   for (let i in a) {
+    //     for (let j in a) {
+    //       if (j == i) {
+    //         continue
+    //       } else {
+    //         let str = `${a[i]}${a[j]}`;
+    //         arr.push(Number(str));
+    //       }
+    //     }
+    //   }
+    //   for (let i = 0; i < arr.length; i++) {
+    //     if (arr[i] > 59) {
+    //       arr.splice(i, 1)
+    //       i--;
+    //     }
+    //   }
+    //   let hour = [];
+    //   for (let i in arr) {
+    //     if (arr[i] < 24) {
+    //       hour.push(arr[i]);
+    //     }
+    //   }
+    //   for (let i in hour) {
+    //     for (let j in hour) {
+    //       if (hour[i] > hour[j]) {
+    //         let a = hour[i];
+    //         hour[i] = hour[j];
+    //         hour[j] = a;
+    //       }
+    //     }
+    //   }
+    //   let gio = hour[0];
+    //   let str;
+    //   for (let i in arr) {
+    //     str = a[i].toString();
+    //     let flag = false;
+    //     let giostr = gio.toString();
+    //     for (let j = 0; j < str.length; j++) {
+    //       if (giostr.charAt(str[i])) {
+    //         flag = true;
+    //       }
+    //     }
+    //     if (arr[i] == gio || flag) {
+    //       arr.splice(i, 1);
+    //       break;
+    //     }
+    //   }
+    //   for (let i in arr) {
+    //     for (let j in arr) {
+    //       if (arr[i] > arr[j]) {
+    //         let a = arr[i];
+    //         arr[i] = arr[j];
+    //         arr[j] = a;
+    //       }
+    //     }
+    //   }
+    //   let min = arr[0];
+    //   return `${gio}:${min}`
+    // }
+    // solution([1, 2, 3, 4]);
+
+    function sum(a) {
+      let arr = [];
+      let t = 0;
+      for (let i = 0; i < a.length; i++) {
+        t += a[i];
+      }
+      if (t % 3 == 0) {
+        return t;
+      } else {
+        for (let i = 0; i < a.length; i++) {
+          let t1 = t - a[i];
+          if ((arr[arr.length - 1] == undefined || t1 > arr[arr.length - 1]) && (t1 % 3 == 0)) {
+            arr[0] = t1;
+          }
+        }
+        if (arr[0] == undefined) {
+          if (a.length > 4) {
+            for (let k = 0; k < a.length - 2; k++) {
+              for (let i = k + 1; i < a.length - 1; i++) {
+                for (let j = i + 1; j < a.length; j++) {
+                  console.log(a[i] + a[j] + a[k]);
+                  if ((a[i] + a[j] + a[k]) % 3 == 0 && (a[i] + a[j] + a[k]) > arr[0]) {
+                    arr[0] = (a[i] + a[j] + a[k]);
+                  }
+                }
+              }
+            }
+            console.log(arr);
+            return arr[0];
+          } else if (a.length > 3) {
+            for (let i = 0; i < a.length - 1; i++) {
+              for (let j = i + 1; j < a.length; j++) {
+                console.log(a[i] + a[j]);
+                if ((a[i] + a[j]) % 3 == 0 && (a[i] + a[j]) > arr[0]) {
+                  arr[0] = (a[i] + a[j]);
+                }
+              }
+            }
+            console.log(arr);
+            return arr[0];
+          } else {
+            for (let j = 0; j < a.length; j++) {
+              console.log(a[j]);
+              if ((a[j] > arr[0] || arr[0] == undefined) && a[j] % 3 == 0) {
+                console.log(a[j]);
+                arr[0] = a[j];
+              }
+            }
+            console.log(arr);
+            return arr[0];
+
+          }
+        }
+        else {
+          return arr[0];
+        }
+      }
+      if (arr[0] == undefined) {
+        return 0;
+      }
+    }
+    console.log(sum([1, 2, 3, 4, 4]));
+  </script> -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
